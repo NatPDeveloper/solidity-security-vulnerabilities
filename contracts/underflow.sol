@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.7.0;
 
 contract underflow {
     mapping (address => uint) public balanceOf;

@@ -1,22 +1,22 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.7.0;
 
 contract king {
-    address payable king;
+    address payable kingAddress;
     uint public prize;
 
     constructor() public payable {
-        king = msg.sender;
+        kingAddress = payable(msg.sender);
         prize = msg.value;
     }
 
     function becomeKing() external payable {
         require(msg.value > prize);
-        king.transfer(prize);
-        king = msg.sender;
+        kingAddress.transfer(prize);
+        kingAddress = payable(msg.sender);
         prize = msg.value;
     }
 
     function _king() public view returns (address) {
-        return king;
+        return kingAddress;
     }
 }
