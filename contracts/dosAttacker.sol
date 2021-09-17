@@ -2,8 +2,6 @@ pragma solidity ^0.5.2;
 
 import "./interfaces/Iking.sol";
 
-import "hardhat/console.sol";
-
 contract dosAttacker {
     Iking public kingContract;
 
