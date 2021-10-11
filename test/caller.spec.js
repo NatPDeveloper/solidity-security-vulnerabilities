@@ -19,9 +19,9 @@ describe("Contract caller vulnerability", function() {
         await callerAttackerContract.deployed();
 
         // expect msg.sender to be contract address and not caller
-        expect((await callerAttackerContract.connect(caller).callMsgSender()).toString()).to.equal(callerAttackerContract.address);
+        expect((await callerAttackerContract.callMsgSender()).toString()).to.equal(callerAttackerContract.address);
 
         // expect tx.origin to be account that signed trx
-        expect((await callerAttackerContract.connect(caller).callTxOrigin()).toString()).to.equal(caller.address);
+        expect((await callerAttackerContract.callTxOrigin()).toString()).to.equal(caller.address);
     });
 });

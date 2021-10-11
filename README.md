@@ -1,3 +1,3 @@
 # solidity-security-vulnerabilities
 
-Simple reentrancy, underflow, and denial of service vulnerability contracts and unit tests.
+Simple reentrancy, underflow, denial of service, and msg.sender vulnerability contracts and unit tests.
